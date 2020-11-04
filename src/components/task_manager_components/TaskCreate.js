@@ -1,6 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { addTask } from '../../actions';
 
 class TaskCreate extends React.Component {
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    this.props.addTask({ name: form.elements[0].value, done: false });
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -9,20 +20,22 @@ class TaskCreate extends React.Component {
         </div>
 
 
-        <form className="ui fluid form">
+        <form onSubmit={this.handleSubmit} className="ui fluid form">
           <div className="field">
-            <input type="text" placeholder="Type..." />
+            <input name='taskName' type="text" placeholder="Type..." autoComplete="off" />
             <div className="ui pointing label">
               Insert here the task's name
             </div>
           </div>
+          <button className="ui button">Submit</button>
         </form>
 
+        <Link to="/">Back to all tasks</Link>
+
       </div>
-
-
     )
   }
 }
 
-export default TaskCreate;
+
+export default connect(null, { addTask })(TaskCreate);
