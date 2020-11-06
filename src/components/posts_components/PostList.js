@@ -1,5 +1,5 @@
 import React from 'react';
-import unsplashApi from '../../apis/unsplashApi';
+// import unsplashApi from '../../apis/unsplashApi';
 import { connect } from 'react-redux';
 
 import { fetchImages } from '../../actions';
@@ -14,12 +14,12 @@ class PostList extends React.Component {
       return (
         <div className="card" key={image.id}>
           <div className="image">
-            <img src={image.urls.small} className="picture" />
+            <img src={image.urls.small} alt="post-img" />
           </div>
           <div className="content">
             <div className="header">{image.user.name}</div>
             <div className="meta">
-              <a>Friends</a>
+              <p>Friends</p>
             </div>
             <div className="description">{image.user.bio}</div>
           </div>
@@ -56,4 +56,4 @@ export default connect(mapStateToProps, { fetchImages })(PostList);
 //    console.log(results);
 //  };
 
-{/* <button onClick={() => this.diocane()}>immagini</button>; */}
+/* <button onClick={() => this.diocane()}>immagini</button>; */

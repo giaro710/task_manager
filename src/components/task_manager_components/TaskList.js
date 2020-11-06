@@ -13,7 +13,6 @@ class TasksList extends React.Component {
 
   taskRender = (tasks) => {
     if (tasks.length > 1) {
-      const doneClass = ''
       return tasks.map((task) => {
         return (
           <div
