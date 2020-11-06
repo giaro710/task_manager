@@ -4,13 +4,16 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import TaskCreate from './task_manager_components/TaskCreate';
 import TaskList from './task_manager_components/TaskList';
 import PostList from './posts_components/PostList';
-import Menu from './Menu'
+import Menu from './Menu';
+import About from './About';
+
 
 const App = () => {
 
   const menuLinks = [
     { label: 'Task Manager', path: '/' },
-    { label: 'Posts', path: '/posts' }
+    { label: 'Posts', path: '/posts' },
+    { label: 'About', path: '/about' }
   ];
 
   return (
@@ -22,6 +25,7 @@ const App = () => {
         <Route path="/create" exact component={TaskCreate} />
 
         <Route path="/posts" exact component={PostList} />
+        <Route path="/about" exact component={About} />
       </div>
     </BrowserRouter>
   );
