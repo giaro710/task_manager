@@ -15,7 +15,7 @@ export const createTaskReducer = (state = initialTasks, action) => {
         tasks: [...state.tasks, action.payload],
       };
     case "MARK_TASK_AS_DONE":
-      console.log("la vede");
+      // console.log("la vede");
       return {
         ...state,
         tasks: state.tasks.map((task) => {
@@ -30,7 +30,7 @@ export const createTaskReducer = (state = initialTasks, action) => {
         }),
       };
     default:
-      console.log("default");
+      // console.log("default");
       return state;
   }
 };
