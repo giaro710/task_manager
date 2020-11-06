@@ -7,28 +7,21 @@ import PostList from './posts_components/PostList';
 import Menu from './Menu'
 
 const App = () => {
-  const componentOne = () => {
-    return (
-      <div>
-        <h1>Main Page</h1>
-        <Link to='/create'>Crea un task</Link>
-      </div>
-    );
-  };
 
-  const componentTwo = () => {
-    return <div>This is the about page</div>;
-  };
+  const menuLinks = [
+    { label: 'Task Manager', path: '/' },
+    { label: 'Posts', path: '/posts' }
+  ];
 
   return (
     <BrowserRouter>
       <div>
-        <Menu />
+        <Menu links={menuLinks} />
         <Route path="/" exact component={TaskList} />
-        <Route path="/about" exact component={componentTwo} />
+        {/* <Route path="/about" exact component={componentTwo} /> */}
         <Route path="/create" exact component={TaskCreate} />
 
-        <Route path='/posts' exact component={PostList} />
+        <Route path="/posts" exact component={PostList} />
       </div>
     </BrowserRouter>
   );
